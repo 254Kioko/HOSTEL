@@ -4,15 +4,71 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
+	<link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+<link rel="manifest" href="fav/site.webmanifest">
+<link rel="mask-icon" href="fav/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
 
     <!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
-	<title>STAY HOSTELS</title>
+	<title>STAY HOSTELS</title> 
+
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script>
+	        function validateForm() {
+  // Get the form data from the user.
+  var name = document.getElementById("name").value;
+  var number = document.getElementById("number").value;
+  var email = document.getElementById("email").value;
+  var gender = document.getElementById("gender").value;
+
+  // Check if all fields are filled in.
+  if (name === "" || number === "" || email === "" || gender === "") {
+    alert("Please fill in all fields.");
+    return false;
+  }
+
+  // Check if the email address is valid.
+  if (!/\w+@\w+\.\w+/.test(email)) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+
+  // The form is valid, so allow it to be submitted.
+  return true;
+}
+
+// Add the event listener to the form.
+document.getElementById("ff").addEventListener("click", validateForm();
 	
+function SubForm (){
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/WZCZ1EiNGP0I1bUm/',
+        type:'post',
+        data:$("#ff").serializeArray(),
+        success: function(){
+          alert("Booking was successful! :)")
+        },
+        error: function(){
+          alert("Booking was successful!:)")
+        }
+    });
+}
+	
+</script>
+		
+
     <!-- Mobile Specific Metas
   ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1,">
     
     <!-- CSS
   ================================================== -->
@@ -60,9 +116,11 @@
 		<div class="row">
 			<div id="cssmenu">
 				<ul>
-				   <li class='active'><a href="index.html">HOME</a></li>
+				   <li class='active'><a href="./">HOME</a></li>
 				   
-				   <li><a href="contact.html">BOOK</a></li>
+				   <li><a href="./contact">BOOK</a></li>
+                              <li><a href="#location">LOCATION</a> </li>
+
 				</ul>
 			</div>
 		
@@ -91,31 +149,37 @@
 										<div class="contact">
 											<h5 class="color-orange">Personal Details</h5>
 											<div id="contact_form">
-												<form name="form1" id="ff" method="post" action="contact.php">
-													<label class="row">
-														<input type="text" name="name" id="name" placeholder="Enter name" required="required" />
-													</label>
-													<br>
-													<label class="row">
-														<input type="text" name="phone number" id="number" placeholder="Enter Phone Number" required="required" />
-													</label>
-													<br>
-													<label class="row">
-														<input type="text" name="email" id="email" placeholder="Enter Email" required="required" />
-													</label>
-													
-													
-													<label for="gender">Gender:</label>
+
+												 <form id="ff" onclick="return validateForm()">
+              <label class="row">
+                                                        <input type="text" name="name" id="name" placeholder="Enter name" required="required" />
+                                                    </label>
+                                                    <br>
+                                                   
+                                                    <label class="row">
+                                                        <input type="text" name="number" id="number" placeholder="Enter Phone Number" required="required" />
+                                                    </label>
+                                                    <br>
+                                                    <label class="row">
+                                                        <input type="text" name="email" id="email" placeholder="Enter Email" required="required" />
+
+                                                    </label>
+                                                   <br>
+                                                    
+                                                    
+                                                    <label for="gender"></label>
   <select name="gender">
     <option value="">Select your gender</option>
     <option value="male">Male</option>
      <option value="female">Female</option>
    </select>
+   <br>
+   <br>
+<button onclick="SubForm()" onclick="return validateForm()"> Book </button>
+  </form>
 
-
-												
-													<center><input class="button" type="submit" name="Submit" value="Submit"></center>
-												</form>
+  
+											
 											</div>
 										</div>
 									</div>
@@ -126,14 +190,15 @@
 											<span>Fill in your details in all the fields.</span>
 											<p>Do not hesitate to contact us incase of any inquiries.
 											  <p>
-												+254799543648</p></p>
+												Phone Number- <a href="tel:+254799543648"> +254799543648
+					</p></p>
 												<p><a href="mailto:stayhostels@gmail.com"> stayhostels@gmail.com </a> </p>
 												<p> Or Visit us </p>  
 											<p> <a href="https://goo.gl/maps/RgsWCh4y9k22v4Up7?coh=178573&entry=tt" target="_blank"> <img class="example-image" src="images/location.png" height="50" width="50" alt="" /></a>  Gents' Hostel <br>
 												<br>
 												
 <br>
-												<a href"https://goo.gl/maps/ujM1iEVPgXZQeXia7?coh=178573&entry=tt" target="_blank"> <img class="example-image" src="images/location.png" height="50" width="50" alt=""/></a> Ladies' Hostel</p>
+												<a href="https://goo.gl/maps/ujM1iEVPgXZQeXia7?coh=178573&entry=tt" target="_blank"> <img class="example-image" src="images/location.png" height="50" width="50" alt=""/></a> Ladies' Hostel</p>
 											 
 											
 									</div>
@@ -144,51 +209,33 @@
 				</div>
 			</div>
 		</section>
-		<div class="slider">
+	<div class="slider">
 	<!-- Slideshow -->
 	<div class="callbacks_container" >
 		<ul class="rslides" id="slider">
 			<li>
-				<img src="images/sitting.jpeg" height="100" width="100" alt="">
+				<img src="images/ukut.jpg" alt="">
 				<div class="caption">
-					
-			</li>
-			<li>
-				<img src="images/ambience.jpeg" alt="">
-				<div class="caption">
-					
-			</li>
-			<li>
-				<img src="images/chuma.jpeg" alt="">
-				<div class="caption">
-					
-			</li>
-			<li>
-				<img src="images/tablee.jpeg" alt="">
-				<div class="caption">
-					
-			</li>
+					</li>
 
 			<li>
-				<img src="images/boys.jpeg" alt="">
-				<div class="caption">
-					
-					<li>
-				<img src="images/dinner.jpeg" alt="">
+				<img src="images/bookk.jpeg" alt="">
 				<div class="caption">
 					
 			</li>
-			<li>
-				<img src="images/boy.jpeg" alt="">
-				<div class="caption">
-					
-			</li>
-			</li>
+			
+			
+			
+			
 
 		</ul>
 	</div>
 	<div class="clear"></div>
 </div>
+		
+	<div class="clear"></div>
+</div>
+	<a id="location"></a>
 		<div class="col-1-2">
 									<div class="wrap-col">
 							
@@ -210,12 +257,12 @@
 		<div class="zerogrid">
 			<div class="row">
 				<h3>Contact</h3>
-				<span>Phone / +254799543648</span></br>
 				<span><a href="mailto:stayhostels@gmail.com"> EMAIL</a>   </span></br>
-				<span> Nairobi West </span></br>
-				<span><strong>Designed by <a href="mailto:kiokoeddie254@gmail.com">EDDIE KIOKO</a> </strong></span>
+				<span> <a href="https://goo.gl/maps/RgsWCh4y9k22v4Up7?coh=178573&entry=tt" target="new"></a> Nairobi West </span></br>
+				<span><strong> <a href="mailto:kiokoeddie254@gmail.com"> Developer </a> </strong></span>
 				<ul class="social-buttons">
-					<li><a href="tel:tel:0799543648"><i class=" fa fa-phone"></i></a>
+					
+					<li><a href="tel:0799543648"><i class=" fa fa-phone"></i></a>
 					</li>
 					<li><a href="https://wa.link/04qo6t"><i class="fa fa-whatsapp"></i></a>
 					</li>
@@ -225,6 +272,8 @@
 					<li><a href="mailto:stayhostels@gmail.com"><i class="fa fa-envelope"></i></a>
 					</li>
 				</ul>
+								<span>Copyright &copy; 2023 Stay Hostels </span>
+
 			</div>
 		</div>
 	</div>
