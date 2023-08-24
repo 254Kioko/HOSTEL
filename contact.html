@@ -17,12 +17,46 @@
   ================================================== -->
 	<meta charset="utf-8">
 	<title>STAY HOSTELS</title> 
-
-	<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
+function sendDataToEmail() {
+  // Get the name, number, email, and gender from the form.
+  var name = $("#name").val();
+  var number = $("#number").val();
+  var email = $("#email").val();
+  var gender = $("#gender").val();
+
+  // Create a new XMLHttpRequest object.
+  var xhr = new XMLHttpRequest();
+
+  // Set the request method and URL.
+  xhr.open("POST", "https://www.stayhostels@gmail.com/send-data.php");
+
+  // Set the request headers.
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  // Create a JSON object with the data to send.
+  var data = {
+    "name": name,
+    "number": number,
+    "email": email,
+    "gender": gender
+  };
+
+  // Send the data as JSON.
+  xhr.send(JSON.stringify(data));
+
+  // When the request is complete, show a message.
+  xhr.onload = function() {
+    if (xhr.status == 200) {
+      alert("Data sent successfully!");
+    } else {
+      alert("Error sending data: " + xhr.statusText);
+    }
+  };
+}
+</script>
+	<script>
 	        function validateForm() {
   // Get the form data from the user.
   var name = document.getElementById("name").value;
@@ -49,19 +83,7 @@
 // Add the event listener to the form.
 document.getElementById("ff").addEventListener("click", validateForm();
 	
-function SubForm (){
-    $.ajax({
-        url:'https://api.apispreadsheets.com/data/qktUBNiMMOWk69Nz/',
-        type:'post',
-        data:$("#ff").serializeArray(),
-        success: function(){
-          alert("Booking was successful! :)")
-        },
-        error: function(){
-          alert("Booking was successful!:)")
-        }
-    });
-}
+
 	
 </script>
 		
@@ -175,7 +197,7 @@ function SubForm (){
    </select>
    <br>
    <br>
-<button onclick="SubForm()" onclick="return validateForm()"> Book </button>
+<button onsubmit="sendDataToEmail()" onclick="return validateForm()"> Book </button>
   </form>
 
   
