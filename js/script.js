@@ -1,3 +1,23 @@
+$(document).ready(function (e) {
+  $(".navbar-toggler").on("click", function () {
+    $(".navbar-nav").toggleClass("show");
+    $(this).toggleClass("open");
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 (function($) {
 
   $.fn.menumaker = function(options) {
