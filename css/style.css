@@ -114,6 +114,108 @@ header .logo img{display: inline-block;margin: 0 auto 30px;max-width: 300px;}
 .content-box.box-4 h3 {font-weight: 500; line-height: 1.2;}
 .content-box.box-4 img{margin-bottom: 30px;max-width: 250px;border-radius: 50%;}
 
+$white: #ffffff;
+$brand-color: #041734;
+$black: #000000;
+.navbar {
+  position: relative;
+  padding: 0;
+  width: 360px;
+
+  &-nav {
+    // width: 100vw it be in your site
+    height: 100vh;
+    width: 360px;
+    position: fixed;
+    top: 0;
+    // left: -100vw; it be in your site
+    left: -360px;
+    z-index: 99;
+    background: #14151f;
+    -webkit-transition: all 0.3s cubic-bezier(0.52, 0.18, 0.27, 0.92);
+    transition: all 0.3s cubic-bezier(0.52, 0.18, 0.27, 0.92);
+    overflow-y: auto;
+
+    &.show {
+      left: 0px;
+    }
+
+    ul {
+      padding: 50px;
+      margin: 0;
+
+      & > li {
+        & > a {
+          padding: 15px;
+          font-size: 18px;
+          display: block;
+          color: $white;
+          position: relative;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &-icon {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: $brand-color;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 4px;
+    }
+
+    &:nth-child(2) {
+      top: 13px;
+    }
+
+    &:nth-child(3) {
+      top: 22px;
+    }
+  }
+
+  &-toggler {
+    width: 30px;
+    height: 30px;
+    display: block;
+    border: none;
+    padding: 0;
+    transition: all 400ms linear;
+    position: relative;
+    z-index: 999;
+    background: none;
+    cursor: pointer;
+
+    &.open {
+      .navbar-icon {
+        background: #f4516c;
+
+        &:nth-child(1) {
+          top: 13px;
+          -webkit-transform: rotate(135deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+          left: -60px;
+        }
+
+        &:nth-child(3) {
+          top: 13px;
+          -webkit-transform: rotate(-135deg);
+        }
+      }
+    }
+  }
+}
 
 
 /* ---MainContent-Article--- */
